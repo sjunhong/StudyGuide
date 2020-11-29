@@ -4,6 +4,15 @@
 
 ---
 
+### Java Most Common Data Structures
+![JavaDS](./images/JavaDS.png)
+
+
+
+<br>
+
+---
+
 ### Numpy Vectorization #1
 [Nuts and Bolts of NumPy Optimization Part 1: Understanding Vectorization and Broadcasting](https://blog.paperspace.com/numpy-optimization-vectorization-and-broadcasting/)
 
