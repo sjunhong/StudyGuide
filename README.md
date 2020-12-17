@@ -66,6 +66,98 @@ language over an alphabet Σ
 <br>
 
 ---
+## Finite-State Automata
+- input: finite string of symbols 
+- Finite set of states
+- Start state / Accepting / Final
+- transition function: specifies what happens if the machine is in a particular state and looking at a particular input symbol
+
+<br>
+
+---
+
+## DFA: Deterministic Finite-State Automata
+- For every <current state, current input symbol> pair, there is exacly one possible nest state
+
+> δ (transition function): δ<sup>*</sup>(q, w) == result state when in state q, input w
+> δ<sup>*</sup>(q, ε) = q
+
+
+- Accepting & Non-accepting states
+
+Accepting
+> Language L is accpeted by some machine M iff L = L(M) -> don't mean that L and maybe some other strings are accepted by M
+
+Non-accepting 
+>garbage, error, trap state
+![nonAccepting](./images/fsa3.png)
+
+
+<br>
+
+---
+## NFA: Nondeterministic Finite-State Automata
+- FSA with multiple input/ no input(ε-transition)? -> DFA does not work
+
+> NFA: DFA + state-ε pair. (maps state input pair & stateε pair)
+> ∂(q,a) = {q<sub>1</sub>, q<sub>2</sub>, ... ,q<sub>n</sub>} : might move to one of the states, original state q, input a.
+
+- Accepting & Non-accepting states
+> A string w is accepted by an NFA provided that at least one of the states in ∂ <sup>*</sup>(q, w) is an accepting state
+
+<br>
+
+---
+## NFA and DFA
+> NFA = super set of DFA. vice versa?
+> 
+> for any NFA, we can find DFA that accepts the same language.
+
+For example
+
+>NFA
+![NFA](./images/fsa9.png)
+
+>partially contructed DFA
+![DFA](./images/fsa10.png)
+
+<br>
+
+---
+## Finite-State Automata & Regular Languages
+
+Regex to NFA
+> [Every Regex can be recognized by NFA](https://bhoward.github.io/focsipedia/docs/lang/fsareg/) 
+
+NFA to Regex
+> Every language accepted by DFA / NFA is genereated by Regex. 
+
+Properies of Regular Language
+> - intersection of two regular languages is a regular language
+> - union of two regular languages is a regular language
+> - concatenation of two regular languages is a regular language
+> - complement of a regular language is a regular language
+> - Kleene closure of a regular language is a regular language
+
+
+<br>
+
+---
+## Sequential Circuits
+- Sequential logic circuits: circuits with cycles
+
+- Synchronous: clock signal to synchronize the times when feedback is applied
+
+- Asynchronous: feedback arrives as soon as gate delays permit. 
+
+Gated D latch - SR latch with extra layer, D(data) E(enable) as input
+![DElatch](./images/DELatch.png)
+
+flip-flop - clocked device, only respond to input for a very brief time
+
+---
+
+
 
 ### Java Most Common Data Structures
 ![JavaDS](./images/JavaDS.png)
