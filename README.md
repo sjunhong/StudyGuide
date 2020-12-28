@@ -3,6 +3,129 @@
 <br>
 
 ---
+## MySQL 
+- Structured Query Language
+- relational database
+> cd /usr/local/mysql/bin/
+> ./mysql -uroot -p/../   WZ        `   
+
+### Structure of MySQL
+- table: information is stored in
+- schema(database): grouped related tables
+- database server: group of schemas
+
+
+### Use of Schema
+create & delete
+> CREATE DATABASE mydata;
+> DROP DATABASE mydata;
+
+list of Database
+> SHOW DATABASES;
+
+select Database
+> USE mydata;
+
+### Create Table
+```sql
+CREATE TABLE  topic(
+    --"col name" "data type(num to show)" "Cannot be NULL" "++" 
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    description TEXT NULL,
+    created DATETIME NOT NULL,
+    author VARCHAR(30) NULL,
+    profile VARCHAR(100) NULL,
+    PRIMARY KEY(id)
+);
+```
+
+### CRUD
+- Create, Read, Update, Delete
+
+#### Create
+```sql
+INSERT INTO topic (title, description, created, author, profile) VALUES ('MySQL', 'MySQL is ...', NOW(), 'JunHong', 'Developer');
+```
+
+#### Read
+```sql
+SELECT * FROM topic;
+```
+
+Only selected columns
+```sql
+SELECT id,title,created,author FROM topic;
+```
+
+Only selected values
+```sql
+SELECT id,title,created,author FROM topic WHERE author='JunHong';
+```
+
+Ascending, Descending Order
+```sql
+SELECT id,title,created,author FROM topic WHERE author='JunHong' ORDER BY id DESC;
+```
+
+Get Limited number of data
+```sql
+SELECT id,title,created,author FROM topic WHERE author='JunHong' ORDER BY id DESC LIMIT 2;
+```
+
+#### Update
+```sql
+UPDATE topic SET description='Oracle is.....', title='Oracle' WHERE id=2;
+```
+
+#### Delete
+```sql
+DELETE FROM topic WHERE id=5;
+```
+
+### Join
+
+> author table
+>| id | name    | profile        |
+>|--|--|--|
+>|  1 | JunHong | Developer      |
+>|  2 | seokjun | Admin          |
+>|  3 | duru    | data scientist |
+
+</br>
+
+>topic table
+>| id | title      | description       | created             | author_id |
+>|--|--|--|--|--|
+>|  1 | MySQL      | MySQL is ...      | 2020-12-28 17:22:29 |         1 |
+>|  2 | Oracle     | Oracle is ...     | 2020-12-28 17:22:46 |         1 |
+>|  3 | SQL Server | SQL is ...        | 2020-12-28 17:23:36 |         2 |
+>|  4 | PostgreSQL | PostgreSQL is ... | 2020-12-28 17:23:59 |         3 |
+>|  5 | MongoDB    | MongoDB is ...    | 2020-12-28 17:24:17 |         1 |
+
+
+```sql
+SELECT topic.id,title,description,created,name,profile FROM topic LEFT JOIN author ON topic.author_id = author.id;
+```
+
+> Result
+>| id | title      | description       | created             | name    | profile        |
+>|--|--|--|--|--|--|
+>|  1 | MySQL      | MySQL is ...      | 2020-12-28 17:22:29 | JunHong | Developer      |
+>|  2 | Oracle     | Oracle is ...     | 2020-12-28 17:22:46 | JunHong | Developer      |
+>|  3 | SQL Server | SQL is ...        | 2020-12-28 17:23:36 | seokjun | Admin          |
+>|  4 | PostgreSQL | PostgreSQL is ... | 2020-12-28 17:23:59 | duru    | data scientist |
+>|  5 | MongoDB    | MongoDB is ...    | 2020-12-28 17:24:17 | JunHong | Developer      |
+
+### Further studies
+- index: faster
+- modeling
+- backup: mysqldump, binary log
+- cloud: AWS RDS, Google Cloud SQL for MySQL, AZURE Database for MySQL
+
+<br>
+
+---
 
 
 ## Languages
