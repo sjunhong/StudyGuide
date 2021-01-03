@@ -3,6 +3,73 @@
 <br>
 
 ---
+
+## Cookies
+- store data of users (< 4KB)
+
+```javascript
+if (request.headers.cookie !== undefined) {
+    let cookies = cookie.parse(request.headers.cookie);
+    console.log(cookies);
+  }
+  response.writeHead(200, {
+    'Set-Cookie': [
+      'tasty_cookie=strawberry',
+      `Permanent=cookies; Max-age=${60 * 60 * 24 * 30}`,
+      'Secure=Secure; Secure',
+      'HttpOnly=HttpOnly; HttpOnly',
+      'Path=Path; Path=/cookie',
+      'Domain=Domain; Domain=o2.org',
+    ],
+  });
+```
+
+further studies
+- Session: to store ID, PW of users
+- Personalize Website: Lang, Num of entrance
+- hash, salt, key stretching: secure password (PBKDF2, bcrypt)
+
+<br>
+
+---
+
+
+## Express
+- Router: a way from the starting point to the destination
+```javascript
+app.get('/', (request, response) => {
+    console.log('GET');
+});
+```
+
+- Middleware   
+    - esay understanding: Use of software that other people made. 
+    - Modify request, response Object 
+
+```javascript
+app.use(bodyParser.urlencoded({ extended: false }));
+```
+
+```javascript
+app.get('*', (request, response, next) => {
+  fs.readdir('./data', function (error, filelist) {
+    console.log('A');
+    request.list = filelist;
+    next();
+  });
+});
+```
+> -> Very similar to basic Routing!
+> 
+> -> In NodeJs, everything is Middleware 
+>
+> -> Little portions of software are connected together and used.
+
+
+
+<br>
+
+---
 ## MySQL 
 - Structured Query Language
 - relational database
