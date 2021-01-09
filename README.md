@@ -4,6 +4,65 @@
 
 ---
 
+## Web Auth - Token
+
+### Stateless server
+- Stateless(Token) <-> Stateful(Session)
+- Does NOT maintain STATE of client 
+  - ONLY use calls from client 
+  - Scalability: no connection between Server and Client
+
+- Stateful Server
+  - Maintain state of client side everytime get calls from client.
+  - Ex) User Login -> store login data in session -> use the data for service
+  - Session is stored in DB or server computer
+
+### Suitable for Mobile App
+Cookie is not a safe way for safe API
+
+### Deliever auth information to other applications
+- OAuth
+  - Use facebook, Google accounts to login
+
+### Security
+- more secure
+
+### Why use Token?
+
+#### Server-based authentication (Session)
+- Server store information of users
+- 1. Flaws - Session
+  - Too many users -> more sessions -> overload on server
+- 2. Flaws - Scalability
+  - Hard to expand server using session. 
+
+#### Token-based authentication
+- stateless: Does Not store user auth info on server
+- Process
+  1 User login with ID and PW
+  2 Server check user info  
+  3 If it is right, server assigns *signed* Token to the user
+  4 Client stores Token and delievers Token whenever it requests server 
+  5 Server authenticate Token and respond to the request
+
+#### Advantage of Token
+- Stateless & Scalability
+  - If server stores sessions, when a user login, the user must request to the server that stores the user's session.
+  - Which means, Hard to expand and use multiple servers
+- Security
+  - more secure than using cookie
+- Extensibility
+  - extend of login information, authorization
+  - assign specific authority to specific users
+- Diverse platforms and domains
+  - for all platforms and domains, request is valied if Token is valid
+- Web standard
+  - JWT (JSON Web Token)
+
+<br>
+
+---
+
 ## Cookies
 - store data of users (< 4KB)
 
