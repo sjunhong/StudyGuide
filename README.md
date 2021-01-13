@@ -3,6 +3,15 @@
 <br>
 
 ---
+## CICD
+Jenkins
+Buddyworks: 워크스페이스 - 프로젝트 (1개당 1개 레포)  - 파이프라인 
+CI: build image 필요 Docker
+
+
+
+
+---
 
 ## Domain Driven Design
 - Way of looking at software from TOP DOWN
@@ -13,6 +22,16 @@
 - Object Oriented Design: Think in terms of Objects
 - Strategic Design: Think in terms of Contexts
 > Contexts: The "SETTING" where a word or statement appears that determines its meaning. 
+
+- control -> dto -> service(application, domain) -> repo  -> db
+![DDD](./images/DDD_explained.png)
+
+
+- repository: stores interfaces
+- infra_structures: actual implementation of repository
+![DDD](./images/DDD_structure.png)
+
+
 
 <br>
 
