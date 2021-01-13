@@ -4,6 +4,20 @@
 
 ---
 
+## Domain Driven Design
+- Way of looking at software from TOP DOWN
+- "Domain": Business or activity we are trying to assist with the software
+![DDD](./images/DDD.png)
+
+### Strategic Design
+- Object Oriented Design: Think in terms of Objects
+- Strategic Design: Think in terms of Contexts
+> Contexts: The "SETTING" where a word or statement appears that determines its meaning. 
+
+<br>
+
+---
+
 ## Web Auth - Token
 
 ### Stateless server
